@@ -1,0 +1,31 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+int main()
+{
+  char a[80];
+  int i,j;
+  int k;
+  gets(a);
+  k=strlen(a);
+  for (i = k-1; i >= 0; i--)
+  {
+    if(a[i]==' ')
+        {
+
+      for (j = i+1; j<k; j++)
+      {
+        printf("%c", a[j]);
+      }
+            printf(" ");
+      k = i;
+        }
+        else if(i==0)
+            for (j = i; j<k; j++)
+      {
+        printf("%c", a[j]);
+      }
+  }
+
+  return 0;
+}

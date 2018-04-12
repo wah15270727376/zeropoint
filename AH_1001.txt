@@ -1,0 +1,29 @@
+#include <iostream>
+
+using namespace std;
+int fun(int n);
+int main()
+{
+  int n;
+  int i=0;
+  cin >> n;
+  while (n != 1)
+  {
+    if (n % 2 == 0)
+      n = n / 2;
+    else
+      n = fun(n);
+    i++;
+  }
+  cout << i << endl;
+  
+  system("pause");
+  return 0;
+}
+int fun(int n)
+{
+  int s;
+  s = 3 * n + 1;
+  s = s / 2;
+  return s;
+}

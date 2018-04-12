@@ -1,0 +1,50 @@
+#include <stdio.h>
+int main()
+{
+    int i,j;
+    int first,num,k;
+    int t1,t2,t3;
+    int data[100000],next[100000];
+
+    scanf("%d%d%d",&first,&num,&k);
+    int a[100000],b[100000],c[100000],ai=0,bi=0,ci=0;
+    for(i=0;i<num;i++)
+    {
+        scanf("%d%d%d",&t1,&t2,&t3);
+        data[t1]=t2;
+        next[t1]=t3;
+    }
+    for(i=first;;i=next[i])
+    {
+        if(data[i]<0)
+        {
+            a[ai]=i;
+            ai++;
+        }
+        else if(data[i]>=0&&data[i]<=k)
+        {
+            b[bi]=i;
+            bi++;
+        }
+        else if(data[i]>k)
+        {
+            c[ci]=i;
+            ci++;
+        }
+        if(next[i]==-1)
+            break;
+    }
+    for(i=ai,j=0;j<bi;i++,j++)
+        a[i]=b[j];
+    ai=ai+bi;
+    for(i=ai,j=0;j<ci;i++,j++)
+        a[i]=c[j];
+    ai=ai+ci;
+    for(i=0;i<ai-1;i++)
+    {
+        printf("%05d %d %05d\n",a[i],data[a[i]],a[i+1]);
+    }
+    if(ai!=0)
+        printf("%05d %d -1\n",a[i],data[a[i]]);
+    return 0;
+}
